@@ -77,9 +77,125 @@ git clone https://huggingface.co/datasets/hanlone/Capstone_msp24076
 
 Or access  [hanlone/Capstone_msp24076 · Datasets at Hugging Face](https://huggingface.co/datasets/hanlone/Capstone_msp24076) to download dataset and pretrained model weight files.
 
-<img src="file:///D:/文件/图片/markdown/2025-07-18-14-27-16-image.png" title="" alt="" data-align="center">
+<img src="2025-07-18-14-27-16-image.png" title="" alt="" data-align="center">
 
 Replace the empty folders with the same names in the project root directory with the downloaded dataset.
+
+Finally, organize your project like:
+
+```bash
+.
+├─── NEU-COCO/
+|   ├─── images/
+|   |   ├─── train/
+|   |   |   ├─── crazing_1.jpg
+|   |   |   └─── crazing_100.jpg
+|   |   |   └─── ... (1438 more items)
+|   |   └─── val/
+|   |       ├─── crazing_10.jpg
+|   |       └─── crazing_102.jpg
+|   |       └─── ... (358 more items)
+|   └─── labels/
+|       ├─── train/
+|       |   ├─── crazing_1.txt
+|       |   └─── crazing_100.txt
+|       |   └─── ... (1438 more items)
+|       └─── train.cache
+|       └─── ... (2 more items)
+├─── cfg/
+|   ├─── NEU.yaml
+|   └─── coco128-seg.yaml
+|   └─── ... (3 more items)
+├─── coco128-seg/
+|   ├─── images/
+|   |   └─── train2017/
+|   |       ├─── 000000000009.jpg
+|   |       └─── 000000000025.jpg
+|   |       └─── ... (126 more items)
+|   └─── labels/
+|       ├─── train2017/
+|       |   ├─── 000000000009.txt
+|       |   └─── 000000000025.txt
+|       |   └─── ... (126 more items)
+|       └─── train2017.cache
+├─── coco8/
+|   ├─── images/
+|   |   ├─── train/
+|   |   |   ├─── 000000000009.jpg
+|   |   |   └─── 000000000025.jpg
+|   |   |   └─── ... (2 more items)
+|   |   └─── val/
+|   |       ├─── 000000000036.jpg
+|   |       └─── 000000000042.jpg
+|   |       └─── ... (2 more items)
+|   └─── labels/
+|       ├─── train/
+|       |   ├─── 000000000009.txt
+|       |   └─── 000000000025.txt
+|       |   └─── ... (2 more items)
+|       └─── train.cache
+|       └─── ... (2 more items)
+├─── ours-COCO/
+|   ├─── data.yaml
+|   └─── images/
+|       ├─── train/
+|       |   ├─── 0-2cm_1-1_jpg.rf.764bea29ece519d80197eb39eaacddb3.jpg
+|       |   └─── 0-2cm_1-1_jpg.rf.b45a69af379f166fea03e5d0e777da4f.jpg
+|       |   └─── ... (163 more items)
+|       └─── val/
+|           ├─── 0-2cm_1-4_jpg.rf.2457dfe2f37b21e3206b54ccd0686b2d.jpg
+|           └─── 0-3cm_1-3_jpg.rf.a5e796cee5d3885373b729c3246d088b.jpg
+|           └─── ... (11 more items)
+|   └─── ... (1 more items)
+├─── scratches_notprocessed/
+|   ├─── train/
+|   |   ├─── images/
+|   |   |   ├─── 0_2cm_2_1_jpg.rf.41cc8182fbea48c8ceff8205aa91a517.jpg
+|   |   |   └─── 0_2cm_2_1_jpg.rf.96d8b7e1b365b210a7737b2822377cd3.jpg
+|   |   |   └─── ... (22 more items)
+|   |   └─── labels/
+|   |       ├─── 0_2cm_2_1_jpg.rf.41cc8182fbea48c8ceff8205aa91a517.txt
+|   |       └─── 0_2cm_2_1_jpg.rf.96d8b7e1b365b210a7737b2822377cd3.txt
+|   |       └─── ... (22 more items)
+|   └─── valid/
+|       ├─── images/
+|       |   ├─── 0_2cm_1_1_jpg.rf.b965a2854f2b3daa258e21268c746561.jpg
+|       |   └─── 0_2cm_1_2_jpg.rf.3036c8ad9b69092e22a5d5ba6b5a9c9d.jpg
+|       |   └─── ... (58 more items)
+|       └─── labels/
+|           ├─── 0_2cm_1_1_jpg.rf.b965a2854f2b3daa258e21268c746561.txt
+|           └─── 0_2cm_1_2_jpg.rf.3036c8ad9b69092e22a5d5ba6b5a9c9d.txt
+|           └─── ... (58 more items)
+├─── synthetic_images_0625/
+|   ├─── images/
+|   |   ├─── train/
+|   |   |   ├─── 0_5cm_1_1_jpg.rf.1374c3d09f1fd6aa3fe0f462f2b4fec1.jpg
+|   |   |   └─── 0_5cm_1_1_jpg.rf.49ef2022e34e7efc7a9223d41c8767f3.jpg
+|   |   |   └─── ... (517 more items)
+|   |   └─── val/
+|   |       ├─── 0_2cm_1_1_jpg.rf.178c389f2d32186f08cba42204a83dfe.jpg
+|   |       └─── 0_2cm_1_2_jpg.rf.b693d3b22aca3390b43c10cc429968a5.jpg
+|   |       └─── ... (52 more items)
+|   └─── labels/
+|       ├─── train/
+|       |   ├─── 0_5cm_1_1_jpg.rf.1374c3d09f1fd6aa3fe0f462f2b4fec1.txt
+|       |   └─── 0_5cm_1_1_jpg.rf.49ef2022e34e7efc7a9223d41c8767f3.txt
+|       |   └─── ... (517 more items)
+|       └─── train.cache
+|       └─── ... (2 more items)
+├─── synthetic_train.py
+├─── synthetic.py
+├─── cuda_tests.py
+├─── README.md
+├─── scratch_pose.py
+├─── test_different_model.py
+├─── FastSAM-s.pt
+├─── yolo11n-pose.pt
+├─── yolo11n.pt
+├─── yolov10n.pt
+├─── yolov5nu.pt
+└─── yolov8n.pt
+```
 
 ## 3. Basic Usage (After Installation)
 
