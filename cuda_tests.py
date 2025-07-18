@@ -12,9 +12,3 @@ model = YOLO("yolo11n.pt")
 
 # Train the model
 results = model.train(data="./cfg/coco8.yaml", epochs=1, imgsz=400, workers=0, cache=False)
-
-
-from datasets import load_dataset
-
-# Login using e.g. `huggingface-cli login` to access this dataset
-ds = load_dataset("hanlone/Capstone_msp24076")
